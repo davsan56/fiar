@@ -2,7 +2,8 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var express = require('express');
-var path = require('path')
+var path = require('path');
+var schedule = require('node-schedule');
 
 // Loads the static CSS and JS files in the public folder
 app.use(express.static(path.join(__dirname, 'public')));
@@ -135,10 +136,19 @@ io.on('connection', function(socket){
 
 // Start the node server
 http.listen(8081, function () {
- var host = "localhost"
- var port = 8081
+ var host = "http://prod.qvqxpdkqjm.us-east-1.elasticbeanstalk.com/";
 
- console.log("Example app listening at http://%s:%s", host, port);
+ console.log("Fiar listening at %", host);
+
+ var rule = new schedule.RecurrenceRule();
+ rule.hour = 2;
+ rule.minute = 0;
+
+ var j = schedule.scheduleJob(rule, function(){
+    games = {};
+    console.log("Cleared out all the games:");
+    console.log(games);
+  });
 });
 
 // Remove user from game and if there are no other players delete the game

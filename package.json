@@ -4,8 +4,10 @@
   "description": "my first socket.io app",
   "dependencies": {
     "express": "^4.16.2",
+    "node-schedule": "^1.2.5",
     "socket.io": "^2.0.4"
-  }, "scripts": {
+  },
+  "scripts": {
     "start": "node server.js"
   }
 }
