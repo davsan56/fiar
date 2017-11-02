@@ -19,6 +19,9 @@ app.get('/', function(req, res) {
 io.on('connection', function(socket){
  // When player wants to start a new game
  socket.on('new', function(user) {
+   // Remove user from any other games
+   disconnectUser(user, socket);
+
    // generate random 6 alpha numeric string
    var name = Math.random().toString(36).substr(2, 5);
   
@@ -125,24 +128,8 @@ io.on('connection', function(socket){
 
  // Called when a player disconnects
  socket.on('disconnect', function(user) {
-   // Find what game they are in
-   for (game in games) {
-     var index = games[game].users.indexOf(socket.id);
-     if (index > -1) {
-       // Remove them from the players list
-       games[game].users.splice(index, 1);
-       // Remove the game if there are no users
-       if (games[game].users.length == 0)
-         delete games[game];
-       else {
-         // Want to let the user know someone disconnected and tell them to send the code again
-         io.to(game).emit('new', {name: game, board: games[game].board, players: 1,
-           message: '<h3>A user has disconnected. Either start a new game, or give them this ID, <mark>'
-           + game + '</mark>, to continue</h3>'})
-       }
-       break;
-     }
-   }
+   // Remove user from server
+   disconnectUser(user, socket);
  });
 });
 
@@ -153,6 +140,26 @@ http.listen(8081, function () {
 
  console.log("Example app listening at http://%s:%s", host, port);
 });
+
+// Remove user from game and if there are no other players delete the game
+function disconnectUser(user, socket) {
+  for (game in games) {
+    var index = games[game].users.indexOf(socket.id);
+    if (index > -1) {
+      // Remove them from the players list
+      games[game].users.splice(index, 1);
+      // Remove the game if there are no users
+      if (games[game].users.length == 0)
+        delete games[game];
+      else {
+        // Want to let the user know someone disconnected and tell them to send the code again
+        io.to(game).emit('new', {name: game, board: games[game].board, players: 1,
+          message: '<h3>A user has disconnected. Either start a new game, or give them this ID, <mark>'
+          + game + '</mark>, to continue</h3>'})
+      }
+    }
+  }
+}
 
 // Find what column the click box is in
 function findCol(x) {
