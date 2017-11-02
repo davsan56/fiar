@@ -11,7 +11,7 @@ function newG() {
 
 // Called when user wants to join a game
 function join() {
- socket.emit('join', {name: $('#joinId').val()});
+ socket.emit('join', {name: $('#joinId').val().toLowerCase()});
 }
 
 // Called when user clicks on a column to place piece
