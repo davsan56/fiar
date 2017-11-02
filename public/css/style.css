@@ -1,0 +1,29 @@
+.box {
+    height: 100px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    border: 1px solid black;
+    border-radius: 50%;
+ }
+ 
+ .gray {
+    background-color: gray;
+ }
+ 
+ .yellow {
+    background-color: yellow;
+ }
+ 
+ .blue {
+    background-color: #8b0000;
+ }
+ 
+ .no-bottom-margin {
+    margin-bottom: 0 !important;
+ }
+ 
+ .background {
+    background-color: #5a98dd;
+    padding-top: 10px;
+    padding-bottom: 10px;
+ }
