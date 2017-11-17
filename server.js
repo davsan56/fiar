@@ -138,7 +138,7 @@ io.on('connection', function(socket){
 });
  
 // Start the node server
-http.listen(3000, function () {
+http.listen(8081, function () {
   var host = "http://prod.qvqxpdkqjm.us-east-1.elasticbeanstalk.com/";
 
   // Set up clearing out of games at 2am
