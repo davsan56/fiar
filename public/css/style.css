@@ -4,26 +4,30 @@
     margin-bottom: 5px;
     border: 1px solid black;
     border-radius: 50%;
- }
+}
  
- .gray {
+.gray {
     background-color: gray;
- }
+}
  
- .yellow {
-    background-color: yellow;
- }
+.red-hover {
+    background-color: red !important;
+}
  
- .blue {
-    background-color: #8b0000;
- }
+.yellow-hover {
+    background-color: yellow !important;
+}
  
- .no-bottom-margin {
+.no-bottom-margin {
     margin-bottom: 0 !important;
- }
+}
  
- .background {
+.background {
     background-color: #5a98dd;
     padding-top: 10px;
     padding-bottom: 10px;
- }
+}
+ 
+.no-bottom-margin > .btn:focus, .no-bottom-margin > .btn:hover {
+    background-color: gray;
+}

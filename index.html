@@ -1,54 +1,55 @@
 <!doctype html>
 <html>
- <head>
-   <!-- Compiled and minified CSS -->
-   <link rel="stylesheet"
-     href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-   <link rel="stylesheet" href="css/style.css" />
+  <head>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="css/style.css" />
    <title>fiar</title>
- </head>
- <body class="container">
-   <div class="row">
-     <h1>Four In a Row&nbsp;<small>Room Id: <mark id="title"></mark></h1>
-   </div>
-   <div class="row">
-     <div class="col s4">
-       <button class="btn" onclick="newG()">New</button>
-     </div>
-     <div class="col s4">
-       <input id="joinId" type="text" placeholder="Room ID" />
-     </div>
-     <div class="col s4">
-       <button class="btn" onclick="join()">Join</button>
-     </div>
-   </div>
-   <div class="row">
-     <div class="col s8">
-       <div id="message"></div>
-     </div>
-     <div class="col s4">
-       <div id="color"></div>
-     </div>
-   </div>
-   </div>
-   <div id="restartButton" class="row" hidden>
-     <div class="col s12 center">
-       <button class="btn" onclick="restart()">Play again?</button>
-     </div>
-   </div>
-   <div id="contain" class="row background" hidden>
-     <div id="board">
-     </div>
-   </div>
-   <!-- jQuery -->
-   <script
-     src="https://code.jquery.com/jquery-3.2.1.min.js"
-     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-     crossorigin="anonymous">
-   </script>
-   <!-- Compiled and minified JavaScript -->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-   <script src="/socket.io/socket.io.js"></script>
-   <script src="js/script.js"></script>
- </body>
+  </head>
+  <body class="container">
+    <div class="row">
+      <h1>Four In a Row&nbsp;<small>Room Id: <mark id="title"></mark></small></h1>
+    </div>
+    <div class="row">
+      <div class="col s4">
+        <button class="btn" onclick="newG()">New</button>
+      </div>
+      <div class="col s4">
+        <input id="joinId" type="text" placeholder="Room ID" />
+      </div>
+      <div class="col s4">
+        <button class="btn" onclick="join()">Join</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s8">
+        <div id="message"></div>
+      </div>
+      <div class="col s4">
+        <div id="color"></div>
+      </div>
+    </div>
+    </div>
+    <div id="restartButton" class="row" hidden>
+      <div class="col s12 center">
+        <button class="btn" onclick="restart()">Play again?</button>
+      </div>
+    </div>
+    <div id="contain" class="row background" hidden>
+      <div id="board">
+      </div>
+    </div>
+    <!-- jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous">
+    </script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/script.js"></script>
+  </body>
 </html>
