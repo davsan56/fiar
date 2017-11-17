@@ -148,7 +148,7 @@ http.listen(8081, function () {
  
   var j = schedule.scheduleJob(rule, function(){
      games = {};
-     console.log("Cleared out all the games:");
+     console.log("Cleared out all the games on %s:", new Date());
      console.log(games);
    });
 });
